@@ -1,15 +1,13 @@
-// CustomFontFamilyInlineTool.ts
-
 import { API, InlineTool } from "@editorjs/editorjs";
 
 /**
  * Custom font family inline tool
  */
-class CustomFontFamilyInlineTool implements InlineTool {
+class FontFamily implements InlineTool {
   /**
    * Css class of custom font family inline tool
    */
-  public static readonly CSS_CLASS = "custom-font-family";
+  public static readonly CSS_CLASS = "FontFamily";
 
   /**
    * Api  of custom font family inline tool
@@ -146,4 +144,4 @@ class CustomFontFamilyInlineTool implements InlineTool {
   }
 }
 
-export default CustomFontFamilyInlineTool;
+export default FontFamily;
