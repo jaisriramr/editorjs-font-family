@@ -1,9 +1,8 @@
 import { API, InlineTool } from "@editorjs/editorjs";
-
 /**
  * Custom font family inline tool
  */
-class FontFamily implements InlineTool {
+export default class FontFamily implements InlineTool {
   /**
    * Css class of custom font family inline tool
    */
@@ -78,22 +77,49 @@ class FontFamily implements InlineTool {
     ];
 
     const container = document.createElement("div");
-    container.classList.add("editorjs-dropdown");
+    // container.classList.add("editorjs-dropdown");
+    container.style.position = "relative";
+    container.style.display = "flex";
     const btn = document.createElement("button");
-    btn.classList.add("editorjs-dropdown-btn");
-    btn.classList.add("tools-truncate");
+    // btn.classList.add("editorjs-dropdown-btn");
+    btn.style.backgroundColor = "transparent";
+    btn.style.color = "inherit";
+    btn.style.fontSize = "inherit";
+    btn.style.cursor = "pointer";
+    btn.style.border = "none";
+    // btn.classList.add("tools-truncate");
+    btn.style.width = "100px";
+    btn.style.whiteSpace = "nowrap";
+    btn.style.overflow = "hidden";
+    btn.style.textOverflow = "ellipsis";
     const dropdownContent = document.createElement("div");
-    dropdownContent.classList.add("editorjs-dropdown-content");
+    dropdownContent.style.top = "36px";
+    dropdownContent.style.minHeight = "100px";
+    dropdownContent.style.padding = "10px";
+    dropdownContent.style.width = "max-content";
+    dropdownContent.style.height = "fit-content";
+    dropdownContent.style.display = "none";
+    dropdownContent.style.position = "absolute";
+    dropdownContent.style.bottom = "0";
+    dropdownContent.style.backgroundColor = "#ffffff";
+    dropdownContent.style.boxShadow = "0px 4px 4px 0px rgba(0, 0, 0, 0.15)";
+    dropdownContent.style.borderRadius = "8px";
+
+    // dropdownContent.classList.add("editorjs-dropdown-content");
 
     fontFamily.map((family: any) => {
       const FontFamily = document.createElement("p");
-      FontFamily.classList.add("editorjs-fontfamily-p");
+      // FontFamily.classList.add("editorjs-fontfamily-p");
+      FontFamily.style.margin = "0";
+      FontFamily.style.padding = "6px 12px";
+      FontFamily.style.cursor = "pointer";
+
       FontFamily.innerText = family;
       FontFamily.style.fontFamily = family;
       FontFamily.onclick = (e: any) => {
         this.font_Family = e.target.innerText;
         btn.innerText = this.font_Family;
-        dropdownContent.classList.remove("editorjs-dropdown-content-active");
+        dropdownContent.style.display = "none";
       };
       dropdownContent.appendChild(FontFamily);
     });
@@ -101,8 +127,9 @@ class FontFamily implements InlineTool {
     container.appendChild(btn);
     container.appendChild(dropdownContent);
     btn.innerHTML = "Font family";
-    btn.onclick = () =>
-      dropdownContent.classList.toggle("editorjs-dropdown-content-active");
+    btn.onclick = () => {
+      dropdownContent.style.display = "block";
+    };
     return container;
   }
 
@@ -143,5 +170,3 @@ class FontFamily implements InlineTool {
     return (this.state = !!mark);
   }
 }
-
-export default FontFamily;
