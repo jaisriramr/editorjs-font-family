@@ -11,9 +11,9 @@ export default class FontFamily implements InlineTool {
   /**
    * Api  of custom font family inline tool
    */
-  public readonly api: API;
+  public readonly api?: API;
 
-  public state: boolean;
+  public state?: boolean;
 
   /**
    * Font family of custom font family inline tool
@@ -24,7 +24,7 @@ export default class FontFamily implements InlineTool {
    * Creates an instance of custom font family inline tool.
    * @param { api, state }
    */
-  constructor({ api, state }: { api: API; state: false }) {
+  constructor({ api, state }: { api?: API; state?: false }) {
     this.api = api;
 
     this.state = state;
@@ -165,7 +165,7 @@ export default class FontFamily implements InlineTool {
    * @returns true if state
    */
   checkState(): boolean {
-    const mark = this.api.selection.findParentTag("mark");
+    const mark = this.api?.selection.findParentTag("mark");
 
     return (this.state = !!mark);
   }

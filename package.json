@@ -1,7 +1,7 @@
 {
   "name": "editorjs-font-family",
-  "version": "0.0.2",
-  "description": "This is a external plugin for text color specifically created for editor.js",
+  "version": "0.0.3",
+  "description": "This is a font family plugin developed for editorjs",
   "main": "dist/cjs/index.js",
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
