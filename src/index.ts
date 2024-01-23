@@ -1,4 +1,5 @@
 import { API, InlineTool } from "@editorjs/editorjs";
+import "./styles.css";
 /**
  * Custom font family inline tool
  */
